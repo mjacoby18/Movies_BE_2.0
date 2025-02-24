@@ -5,6 +5,7 @@ class Movie(models.Model):
     description = models.TextField(max_length=360)
     year = models.IntegerField(blank=False, null=False)
     rating = models.IntegerField(blank=False, null=False)
+    director = models.CharField(max_length=100, default="Unknown Director")
 
     created_date = models.DateTimeField(
         default=timezone.now)

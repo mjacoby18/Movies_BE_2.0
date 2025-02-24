@@ -5,10 +5,9 @@ from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 
 class MovieSerializer(serializers.ModelSerializer):
-
     class Meta:
             model = Movie
-            fields = ('pk','name', 'description', 'year', 'rating')
+            fields = ('pk','name', 'description', 'year', 'rating', 'director')
 
 class RegisterSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(

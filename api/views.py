@@ -32,11 +32,11 @@ def getMovie(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = MovieSerializer(movie,context={'request': request})
+        serializer = MovieSerializer(movie, context={'request': request})
         return Response(serializer.data)
 
-    elif request.method == 'PUT':
-        serializer = MovieSerializer(movie, data=request.data,context={'request': request})
+    elif request.method == 'PUT':  # Update the movie with new director
+        serializer = MovieSerializer(movie, data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
